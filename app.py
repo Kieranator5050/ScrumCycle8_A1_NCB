@@ -1,14 +1,7 @@
 from flask import Flask, render_template
-from flask_assets import Environment, Bundle
 from datetime import datetime
 
 app = Flask(__name__)
-
-"""Register Scss"""
-assets = Environment(app)
-assets.url = app.static_url_path
-scss = Bundle('style.scss', filters='pyscss', output='style.css')
-assets.register('scss', scss)
 
 """MOCK DATA"""
 
