@@ -3,7 +3,7 @@
 <ul class="product-group">
     {% for product in products %}
         <li>
-            <a href="/products/{{ product.id }}">
+            <a href="{{ url_for("product_detail", product_id=product.id) }}">
                 <img class="product-img" src="{{ url_for('static', filename='images/{}.png'.format(product.id)) }}"/>
                 <div class="product-info">
                     <p>{{ product.title }}</p>

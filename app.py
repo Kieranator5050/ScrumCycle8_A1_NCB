@@ -5,7 +5,7 @@ from .scripts.productSeeder import generateProducts, Product
 app = Flask(__name__)  
 
 """Global Variables"""
-products = generateProducts()
+product_list = generateProducts()
 
 """ 
 Context processor
@@ -25,13 +25,13 @@ def home():
 
 # Products View
 @app.route("/products")
-def product():
-    return render_template('products.html', products=products)
+def products():
+    return render_template('products.html', products=product_list)
 
 # Product Detail View
 @app.route("/products/<product_id>")
 def product_detail(product_id):
-    product = Product.getProductByID(products, int(product_id))
+    product = Product.getProductByID(product_list, int(product_id))
     if product:
         return render_template('product_detail.html', product=product)
     else:
