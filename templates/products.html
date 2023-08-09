@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-<ul>
+<ul class="product-group">
     {% for product in products %}
         <li>
             <a href="/products/{{ product.id }}">
-                <img src="{{ url_for('static', filename='images/{}.png'.format(product.id)) }}"/>
-                <div>
+                <img class="product-img" src="{{ url_for('static', filename='images/{}.png'.format(product.id)) }}"/>
+                <div class="product-info">
                     <p>{{ product.title }}</p>
-                    <p>{{ product.price }}</p>
+                    <p>${{ product.price }}</p>
                 </div>
             </a>
         </li>
