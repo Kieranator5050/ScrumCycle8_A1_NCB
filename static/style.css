@@ -2,4 +2,73 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    transition: 200ms;
+}
+
+html{
+    font-family: monospace;
+    background-color:azure;
+}
+
+ul{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+/* Nav Bar */
+.header{
+    padding: 25px;
+}
+
+.header ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+
+}
+
+.header ul li a{
+    font-size: 18px;
+}
+
+.header ul li a:hover{
+    font-size: 24px;
+}
+
+/* Home */
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile-pic{
+    width: 30vw;
+    border-radius: 50%;
+}
+.profile-pic:hover{
+    transform: scale(1.1);
+}
+
+/* Products */
+
+/* Product Detail */
+
+/* Footer */
+.footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 45%;
 }
