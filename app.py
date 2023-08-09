@@ -1,37 +1,11 @@
 from flask import Flask, render_template, redirect
 from datetime import datetime
-import random, string
+from .productSeeder import generateProducts, Product
 
-app = Flask(__name__)
+app = Flask(__name__)  
 
-"""MOCK DATA"""
-class Product:
-    @staticmethod
-    def getProductByID(products: list, id: int):
-        for product in products:
-            if product.id == id:
-                return product
-        return None
-        
-    def __init__(self, _id, _title, _img, _desc, _price):
-        self.id = _id
-        self.title = _title
-        self.img = _img
-        self.description = _desc
-        self.price = _price
-    
-products = []
-
-for i in range(6):
-    products.append(
-        Product(
-            i, 
-            f'Item {i}',
-            i,
-            ''.join(random.choices(string.ascii_letters + string.digits, k=random.randint(10, 200))),
-            (i+1)*100)
-        )    
-
+"""Global Variables"""
+products = generateProducts()
 
 """ 
 Context processor
@@ -41,16 +15,22 @@ Context processor
 def inject_date():
     return dict(date=datetime.now())
 
+
+"""
+Routes
+"""
+
+# Home Route
 @app.route("/")
 def home():
     return render_template('home.html')
 
-
+# Products View
 @app.route("/products")
 def product():
     return render_template('products.html', products=products)
 
-
+# Product Detail View
 @app.route("/products/<product_id>")
 def product_detail(product_id):
     product = Product.getProductByID(products, int(product_id))
