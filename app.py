@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect
 from datetime import datetime
-from .productSeeder import generateProducts, Product
+from .scripts.productSeeder import generateProducts, Product
 
 app = Flask(__name__)  
 
@@ -15,11 +15,9 @@ Context processor
 def inject_date():
     return dict(date=datetime.now())
 
-
 """
 Routes
 """
-
 # Home Route
 @app.route("/")
 def home():
