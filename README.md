@@ -1,7 +1,12 @@
 # SCRUM Cycle 8 - Server-side Essentials using Python
 
 # Commands
-- flask --app app.py --debug run
+
+Install Requirements
+- pip install -r requirements.txt
+
+Start Dev Server
+- flask --app app.py --debug run 
 
 ## Assignment 1
 
