@@ -29,7 +29,7 @@ for i in range(6):
             f'Item {i}',
             i,
             ''.join(random.choices(string.ascii_letters + string.digits, k=random.randint(10, 200))),
-            i*100)
+            (i+1)*100)
         )    
 
 
